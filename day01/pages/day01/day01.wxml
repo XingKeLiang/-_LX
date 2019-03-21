@@ -1,0 +1,40 @@
+<!--pages/day01/day01.wxml-->
+<!-- 插值表达式 -->
+<text>{{title}}</text>
+<text>{{1<2}}</text>
+
+<!-- 条件渲染 -->
+<!-- flag==true时显示，否则不会显示 -->
+<view wx:if="{{flag==0}}">123</view>
+<view wx:else="{{flag==1}}">abc</view>
+
+<!-- 绑定属性 -->
+<text data-uid="{{uid}}">绑定属性</text>
+
+ 
+<!-- 列表渲染 -->
+<view  wx:for="{{list}}">
+  {{index}} --> {{item}}
+</view>
+
+
+<!-- 复杂的列表渲染 -->
+<view wx:for="{{double}}" wx:for-index="num" wx:for-item="name">
+  {{num}}   -->  {{name.cate}}
+  <view wx:for="{{name.carbrand}}" wx:for-item="sunbrand">
+    {{sunbrand.brand}}
+  </view>
+</view>
+
+
+<!-- 自定义函数 -->
+  <button bindtap="printMst" size='mini'>点击执行</button>
+  <text>{{uid}}</text>
+  <button bindtap="getdata" size="mini">点击获取</button>
+  <text>{{msg}}</text>
+  <button bingtap="setdata" size="mini">点击改变</button>
+
+
+  <!-- 传递参数 -->
+  <view>{{num}}</view>
+  <button data-aid="{{num}}" bindtap='count' size='mini'>点击</button>
