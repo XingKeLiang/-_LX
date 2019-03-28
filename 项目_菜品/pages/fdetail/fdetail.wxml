@@ -1,2 +1,16 @@
 <!--pages/fdetail/fdetail.wxml-->
-<text>pages/fdetail/fdetail.wxml</text>
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='body'>
+  <view class='page-content' wx:for="{{list}}" wx:key="list._id">
+    <image src="{{preImgSrc}}{{item.img_url}}"></image>
+    <view class='fd-nameprice'>
+      <view class='fd-name'>{{item.title}}</view>
+      <view class='fd-price'>￥{{item.price}}</view>
+    </view>
+    <view class='fd-detail'>
+      <view class='fd-title'>商品详情</view>
+      <!-- <view class='fd-content'>{{item.content}}</view> -->
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>//这里是模板解析出来的内容
+    </view>
+  </view>
+</view>

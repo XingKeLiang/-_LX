@@ -18,9 +18,9 @@ Page({
   },
   goFootDetail(e){
     // console.log(e.target.dataset.fid);
-    var fid = e.target.dataset.fid;
+    var id = e.currentTarget.dataset.foodid;
     wx.navigateTo({
-      url: '../fdetail/fdetail?fid='+fid
+      url: '../fdetail/fdetail?fid='+id
     })
   },
   requestFootList(){
@@ -28,11 +28,11 @@ Page({
     wx.request({
       url: 'http://a.itying.com/api/productlist',
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type':'application/json' // 默认值
       },
       success:function(res){
-       var r = res.data.result;
         console.log(res);
+        var r = res.data.result;
         for(var i=0;i<r.length;i++){
           for(var j=0;j<r[i].list.length;j++){
             var rl = r[i].list;
@@ -42,7 +42,7 @@ Page({
         that.setData({
           list:res.data.result
         });
-        console.log(that.data.list);
+        // console.log(that.data.list);
       }
     })
   }

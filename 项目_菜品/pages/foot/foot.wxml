@@ -5,7 +5,12 @@
   <view class='food-unit' wx:for="{{list}}" wx:for-item="cate" wx:key="cate._id">
     <view class='food-cate'>{{cate.title}}</view>
     <view class='food-content'>
-      <view class='food-item' wx:for="{{cate.list}}" wx:for-item="food"  wx:key="food._id">
+      <view class='food-item' 
+       wx:for="{{cate.list}}"
+       wx:for-item="food" 
+       wx:key="{{food._id}}" 
+       bindtap="goFootDetail" 
+       data-foodid="{{food._id}}">
         <image src='{{preImgSrc}}{{food.img_url}}'></image>
         <view class='food-name'>{{food.title}}</view>
         <view class='food-price'>￥{{food.price}}</view>
